@@ -10,6 +10,7 @@ import LoginPage from './views/LoginPage/LoginPage';
 import RegisterPage from './views/RegisterPage/RegisterPage';
 
 function App(){
+  
   return (
     <BrowserRouter>
       <div>
