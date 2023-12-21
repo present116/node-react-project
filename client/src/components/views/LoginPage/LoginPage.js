@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch} from 'react-redux'
 import { loginUser } from '../../../_actions/user_action';
+import { useNavigate } from "react-router-dom";
+import Auth from '../../../hoc/auth'
 
 function LoginPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -29,6 +32,9 @@ function LoginPage() {
         if(res.payload.loginSuccess){
           alert("로그인 성공!")
           //props.history.push('/')
+          navigate("/")
+        }else{
+          alert("Login Error!");
         }
       })
   }
@@ -52,4 +58,4 @@ function LoginPage() {
   )
 }
 
-export default LoginPage
+export default Auth(LoginPage, false)

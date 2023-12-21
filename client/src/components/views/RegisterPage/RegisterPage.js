@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch} from 'react-redux'
 import { registerUser } from '../../../_actions/user_action';
+import Auth from '../../../hoc/auth'
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [Email, setEmail] = useState("");
   const [Name, setName] = useState("");
@@ -43,7 +46,9 @@ function RegisterPage() {
       .then(res => {
         if(res.payload.success){
           alert("회원가입 성공!")
-          //props.history.push('/')
+          navigate("/")
+        }else{
+          alert("Register Error!")
         }
       })
   }
@@ -76,4 +81,4 @@ function RegisterPage() {
   )
 }
 
-export default RegisterPage
+export default Auth(RegisterPage, null)
