@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Axios } from 'axios';
 import { useDispatch} from 'react-redux'
 import { loginUser } from '../../../_actions/user_action';
 
@@ -28,6 +27,7 @@ function LoginPage() {
     dispatch(loginUser(body))
       .then(res => {
         if(res.payload.loginSuccess){
+          alert("성공")
           //props.history.push('/')
         }
       })
