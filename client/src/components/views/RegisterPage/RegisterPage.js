@@ -42,7 +42,7 @@ function RegisterPage() {
     dispatch(registerUser(body))
       .then(res => {
         if(res.payload.success){
-          alert("회원가입 성공")
+          alert("회원가입 성공!")
           //props.history.push('/')
         }
       })

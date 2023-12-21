@@ -27,7 +27,7 @@ function LoginPage() {
     dispatch(loginUser(body))
       .then(res => {
         if(res.payload.loginSuccess){
-          alert("성공")
+          alert("로그인 성공!")
           //props.history.push('/')
         }
       })
